@@ -4,13 +4,20 @@ namespace QuasarQuant.Application.Signals;
 
 public class SignalService : ISignalService
 {
+    private readonly ISignalRepository signalRepository;
+
+    public SignalService(ISignalRepository signalRepository)
+    {
+        this.signalRepository = signalRepository;
+    }
+
     public Task<TradeSignal?> GetLatestAsync(
         string symbol,
         CancellationToken cancellationToken)
     {
-        // Temporary placeholder until a repository exists.
-        return Task.FromResult<TradeSignal?>(null);
+        return signalRepository.GetLatestAsync(symbol, cancellationToken);
     }
+
     public Task<IReadOnlyList<TradeSignal>> GetLatestBatchAsync(
         IEnumerable<string> symbols,
         CancellationToken cancellationToken)

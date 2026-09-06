@@ -96,6 +96,9 @@ If I still cannot solve it, explain the answer clearly and honestly.
 
 Do not deliberately withhold the answer indefinitely.
 
+### Step 7 — Update documentation
+
+Everytime I clarify a design decision, ask you a question, or learn something new, update the documentation in the project to reflect it if it is not already documented so I can revisit it later.
 ---
 
 ## 4. Do not solve every problem for me
