@@ -9,7 +9,9 @@ public class InMemorySignalRepository : ISignalRepository
         string symbol,
         CancellationToken cancellationToken)
     {
-        var signal = symbol switch
+
+        // Temporary in-memory implementation for demonstration purposes.
+        TradeSignal? signal = symbol switch
         {
             "AAPL" => new TradeSignal
             {
@@ -47,5 +49,18 @@ public class InMemorySignalRepository : ISignalRepository
         };
 
         return Task.FromResult(signal);
+    }
+
+
+    public Task<IReadOnlyList<TradeSignal>> GetLatestBatchAsync(
+        IEnumerable<string> symbols,
+        CancellationToken cancellationToken)
+    {
+        // Temporary in-memory implementation for demonstration purposes.
+        var signals = symbols.Select(symbol => GetLatestAsync(symbol, cancellationToken).Result)
+                             .Where(signal => signal != null)
+                             .ToList();
+
+        return Task.FromResult<IReadOnlyList<TradeSignal>>(signals);
     }
 }

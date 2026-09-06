@@ -31,4 +31,31 @@ public class SignalController : ControllerBase
 
         return signal is null ? NotFound() : Ok(signal);
     }
+    [HttpPost("batch")]
+    public async Task<ActionResult<IEnumerable<TradeSignal>>> GetBatchSignals(
+        [FromBody] List<string>? symbols,
+        CancellationToken cancellationToken)
+    {
+        if (symbols is null || symbols.Count == 0)
+        {
+            return BadRequest("At least one symbol is required.");
+        }
+
+        var normalizedSymbols = symbols
+            .Where(symbol => !string.IsNullOrWhiteSpace(symbol))
+            .Select(symbol => symbol.Trim().ToUpperInvariant())
+            .Distinct()
+            .ToList();
+
+        if (normalizedSymbols.Count == 0)
+        {
+            return BadRequest("At least one non-empty symbol is required.");
+        }
+
+        var signals = await signalService.GetLatestBatchAsync(
+            normalizedSymbols,
+            cancellationToken);
+
+        return Ok(signals);
+    }
 }

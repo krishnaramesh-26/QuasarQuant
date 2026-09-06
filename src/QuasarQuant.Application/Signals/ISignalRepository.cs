@@ -7,4 +7,8 @@ public interface ISignalRepository
     Task<TradeSignal?> GetLatestAsync(
         string symbol,
         CancellationToken cancellationToken);
+
+    Task<IReadOnlyList<TradeSignal>> GetLatestBatchAsync(
+        IEnumerable<string> symbols,
+        CancellationToken cancellationToken);
 }

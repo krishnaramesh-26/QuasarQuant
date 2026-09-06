@@ -22,8 +22,7 @@ public class SignalService : ISignalService
         IEnumerable<string> symbols,
         CancellationToken cancellationToken)
     {
-        // Temporary placeholder until a repository exists.
-        return Task.FromResult<IReadOnlyList<TradeSignal>>(new List<TradeSignal>());
+        return signalRepository.GetLatestBatchAsync(symbols, cancellationToken);
     }
 
 }
