@@ -98,7 +98,17 @@ Do not deliberately withhold the answer indefinitely.
 
 ### Step 7 — Update documentation
 
-Everytime I clarify a design decision, ask you a question, or learn something new, update the documentation in the project to reflect it if it is not already documented so I can revisit it later.
+Whenever I clarify a design decision, ask you a question, or learn something new, update the appropriate project document if the decision is not already recorded. Do not add unrelated topics to one large guide. Use this documentation map:
+
+- Product scope, priorities, and MVP exclusions: `docs/MVP.md`
+- HTTP routes, request bodies, responses, and status codes: `docs/API_ENDPOINTS.md`
+- Containers, runtime components, deployment, and infrastructure diagrams: `docs/BACKEND_INFRASTRUCTURE.md`
+- Use-case coordination, application-layer responsibilities, and service contracts: `docs/APPLICATION_SERVICES.md`
+- Repository interfaces, persistence, EF Core, and data-access boundaries: `docs/REPOSITORIES_AND_DATA_ACCESS.md`
+- Python models, feature engineering, training, inference, and ML storage: `docs/ML_SERVICE.md`
+- Local commands, ports, and development setup: `docs/LOCAL_DEVELOPMENT.md`
+
+Update `README.md` only for project orientation, the current stack, or links to the detailed guides. When adding a new topic, either place it in the closest existing document or create a focused document and add it to the README documentation table.
 ---
 
 ## 4. Do not solve every problem for me

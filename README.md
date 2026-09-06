@@ -1,38 +1,28 @@
-## Info
+# QuasarQuant
 
-### Project Summary in [Project Summary](docs/PROJECT_SUMMARY.md)
+QuasarQuant is a learning and portfolio project for building a quantitative research, backtesting, machine learning, and paper-trading platform. The goal is to build a maintainable engineering platform, not to promise profitable trading results.
 
+## Documentation
 
-## Example Predicition from Fast API service
- ```json
- {
-  "prediction_id": "a7b9c3d4-1f2e-4c6b-9d3f-0a1b2c3d4e5f",
-  "model_version": "random_forest_v1",
-  "generated_at": "2026-09-01T12:34:56Z",
-  "symbol": "AAPL",
-  "timeframe": "1d",
-  "target_timestamp": "2026-09-01T00:00:00Z",
-  "signal": "BUY",
-  "confidence": 0.87,
-  "probabilities": { "BUY": 0.87, "SELL": 0.05, "HOLD": 0.08 },
-  "position_size_pct": 2.5,
-  "recommended_price": 174.32,
-  "feature_set_name": "v1_basic_tech",
-  "feature_vector": { "sma_10": 172.5, "rsi_14": 64.2, "macd": 0.8 },
-  "risk_score": 0.22,
-  "source": "live",
-  "metadata": { "model_type": "RandomForest", "training_window": "2018-2026" }
-}
-```
+Start with the guide that matches the question you are asking:
 
-Will be sent as batch predictions
+| Question | Document |
+|---|---|
+| What belongs in the first release? | [MVP](docs/MVP.md) |
+| Which HTTP routes exist? | [API Endpoints](docs/API_ENDPOINTS.md) |
+| How do the services and containers fit together? | [Backend Infrastructure](docs/BACKEND_INFRASTRUCTURE.md) |
+| Where does use-case logic belong? | [Application Services](docs/APPLICATION_SERVICES.md) |
+| How should storage be accessed? | [Repositories and Data Access](docs/REPOSITORIES_AND_DATA_ACCESS.md) |
+| How will the Python ML service work? | [ML Service](docs/ML_SERVICE.md) |
+| How do I run the project locally? | [Local Development](docs/LOCAL_DEVELOPMENT.md) |
 
-```json
-{
-[
-  { /* prediction 1 */ },
-  { /* prediction 2 */ },
-  { /* prediction 3 */ }
-]
-}
-```
+## Current stack
+
+- Blazor Server frontend (`QuasarQuant.Web`)
+- ASP.NET Core Web API (`QuasarQuant.API`)
+- PostgreSQL for planned durable storage
+- Redis for planned caching
+- Python and FastAPI for the planned ML service
+- Docker Compose for local multi-service development
+
+The current API uses an in-memory signal repository so the request flow can be developed before PostgreSQL is connected.
