@@ -19,7 +19,7 @@ services:
   api:
     build:
       context: .
-      dockerfile: infrastructure/Docker/Dockerfile.api
+      dockerfile: src/QuasarQuant.Infrastructure/Docker/Dockerfile.api
     container_name: quasarquant-api
     environment:
       ASPNETCORE_ENVIRONMENT: Development
@@ -33,7 +33,7 @@ services:
   web:
     build:
       context: .
-      dockerfile: infrastructure/Docker/Dockerfile.web
+      dockerfile: src/QuasarQuant.Infrastructure/Docker/Dockerfile.web
     container_name: quasarquant-web
     environment:
       ASPNETCORE_ENVIRONMENT: Development
@@ -43,6 +43,7 @@ services:
     depends_on:
       - api
 
+  # TODO: Add Nginx service for reverse proxy and SSL termination
 
 volumes:
   postgres_data:
