@@ -11,4 +11,10 @@
     <PackageReference Include="Scalar.AspNetCore" Version="2.16.20" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../QuasarQuant.Core/QuasarQuant.Core.csproj" />
+    <ProjectReference Include="..\QuasarQuant.Application\QuasarQuant.Application.csproj" />
+    <ProjectReference Include="..\QuasarQuant.Infrastructure\QuasarQuant.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

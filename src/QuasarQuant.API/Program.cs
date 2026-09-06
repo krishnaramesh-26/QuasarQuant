@@ -1,9 +1,12 @@
+using QuasarQuant.Application.Signals;
+using QuasarQuant.Infrastructure.Signals;
 using Scalar.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.AddOpenApi();
-
+builder.Services.AddOpenApi();  
+builder.Services.AddScoped<ISignalService, SignalService>();
+builder.Services.AddSingleton<ISignalRepository, InMemorySignalRepository>();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

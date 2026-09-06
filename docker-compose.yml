@@ -3,19 +3,47 @@ services:
     image: postgres:18
     container_name: postgres-dev
     environment:
-      POSTGRES_PA SSWORD: $POSTGRES_PASSWORD
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-quasarquant_dev}
+      POSTGRES_DB: quasarquant
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql
-    
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
       timeout: 5s
       retries: 5
 
-      
+  api:
+    build:
+      context: .
+      dockerfile: src/QuasarQuant.Infrastructure/Docker/Dockerfile.api
+    container_name: quasarquant-api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: Host=db;Port=5432;Database=quasarquant;Username=postgres;Password=${POSTGRES_PASSWORD:-quasarquant_dev}
+    ports:
+      - "5272:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    build:
+      context: .
+      dockerfile: src/QuasarQuant.Infrastructure/Docker/Dockerfile.web
+    container_name: quasarquant-web
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: 8080
+    ports:
+      - "5013:8080"
+    depends_on:
+      - api
+
+  # TODO: Add Nginx service for reverse proxy and SSL termination
 
 volumes:
   postgres_data:
