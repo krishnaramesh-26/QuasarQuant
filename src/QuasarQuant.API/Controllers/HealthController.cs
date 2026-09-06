@@ -5,7 +5,7 @@ namespace QuasarQuant.API.Controllers;
 
 [ApiController]
 [Route("health")]
-public class HealthController : ControllerBase
+public class HealthController : Controller
 {
     [HttpGet]
     public IActionResult GetHealth()

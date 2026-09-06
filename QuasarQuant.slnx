@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/QuasarQuant.API/QuasarQuant.API.csproj" />
+    <Project Path="src/QuasarQuant.Application/QuasarQuant.Application.csproj" />
+    <Project Path="src/QuasarQuant.Core/QuasarQuant.Core.csproj" />
+    <Project Path="src/QuasarQuant.Infrastructure/QuasarQuant.Infrastructure.csproj" />
+    <Project Path="src/QuasarQuant.Shared/QuasarQuant.Shared.csproj" />
+    <Project Path="src/QuasarQuant.Web/QuasarQuant.Web.csproj" />
+  </Folder>
+</Solution>

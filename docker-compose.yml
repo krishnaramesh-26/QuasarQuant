@@ -3,7 +3,7 @@ services:
     image: postgres:18
     container_name: postgres-dev
     environment:
-      POSTGRES_PA SSWORD: $POSTGRES_PASSWORD
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
     ports:
       - "5432:5432"
     volumes:
@@ -15,7 +15,6 @@ services:
       timeout: 5s
       retries: 5
 
-      
 
 volumes:
   postgres_data:
