@@ -1,5 +1,4 @@
 using QuasarQuant.Core.Models;
-
 namespace QuasarQuant.Application.Signals;
 
 public class SignalService : ISignalService
