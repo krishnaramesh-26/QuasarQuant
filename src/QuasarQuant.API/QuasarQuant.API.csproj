@@ -14,7 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="../QuasarQuant.Core/QuasarQuant.Core.csproj" />
     <ProjectReference Include="..\QuasarQuant.Application\QuasarQuant.Application.csproj" />
-    <ProjectReference Include="..\QuasarQuant.Infrastructure\QuasarQuant.Infrastructure.csproj" />
+    <ProjectReference Include="..\QuasarQuant.Repository\QuasarQuant.Repository.csproj" />
   </ItemGroup>
 
 </Project>

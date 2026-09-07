@@ -67,8 +67,8 @@ The API depends on the application contract, while Infrastructure supplies imple
 
 ```text
 QuasarQuant.API -> QuasarQuant.Application -> QuasarQuant.Core
-QuasarQuant.Infrastructure -> QuasarQuant.Application
-QuasarQuant.Infrastructure -> QuasarQuant.Core
+QuasarQuant.Repository -> QuasarQuant.Application
+QuasarQuant.Repository -> QuasarQuant.Core
 ```
 
 ## Testing boundary

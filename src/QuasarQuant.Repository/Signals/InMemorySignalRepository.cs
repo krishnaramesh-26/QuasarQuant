@@ -1,7 +1,7 @@
 using QuasarQuant.Application.Signals;
 using QuasarQuant.Core.Models;
 
-namespace QuasarQuant.Infrastructure.Signals;
+namespace QuasarQuant.Repository.Signals;
 
 public class InMemorySignalRepository : ISignalRepository
 {
@@ -58,7 +58,8 @@ public class InMemorySignalRepository : ISignalRepository
     {
         // Temporary in-memory implementation for demonstration purposes.
         var signals = symbols.Select(symbol => GetLatestAsync(symbol, cancellationToken).Result)
-                             .Where(signal => signal != null)
+                             .Where(signal => signal is not null)
+                             .Select(signal => signal!)
                              .ToList();
 
         return Task.FromResult<IReadOnlyList<TradeSignal>>(signals);

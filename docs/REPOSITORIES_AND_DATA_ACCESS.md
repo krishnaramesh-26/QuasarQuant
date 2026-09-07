@@ -11,7 +11,7 @@ flowchart LR
     InMemorySignalRepository --> SampleData[Sample signals]
 ```
 
-The abstraction is defined in `src/QuasarQuant.Application/Signals/ISignalRepository.cs`. The temporary implementation is `src/QuasarQuant.Infrastructure/Signals/InMemorySignalRepository.cs`.
+The abstraction is defined in `src/QuasarQuant.Application/Signals/ISignalRepository.cs`. The temporary implementation is `src/QuasarQuant.Repository/Signals/InMemorySignalRepository.cs`.
 
 ## Contract
 
@@ -38,7 +38,7 @@ flowchart LR
 
 When PostgreSQL is introduced:
 
-1. Add a `SignalRepository` implementation in `QuasarQuant.Infrastructure/Signals/`.
+1. Add a `SignalRepository` implementation in `QuasarQuant.Repository/Signals/`.
 2. Inject an EF Core `DbContext` into that repository.
 3. Register it as scoped in `Program.cs`.
 4. Keep the controller and `SignalService` dependent on interfaces.

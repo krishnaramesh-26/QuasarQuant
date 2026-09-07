@@ -1,5 +1,5 @@
 using QuasarQuant.Application.Signals;
-using QuasarQuant.Infrastructure.Signals;
+using QuasarQuant.Repository.Signals;
 using Scalar.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
