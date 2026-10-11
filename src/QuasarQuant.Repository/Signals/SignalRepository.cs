@@ -5,9 +5,9 @@ namespace QuasarQuant.Repository.Signals;
 
 public class SignalRepository : ISignalRepository
 {
-    private readonly AppDbContext dbContext;
+    private readonly Data.AppDbContext dbContext;
 
-    public SignalRepository(AppDbContext dbContext)
+    public SignalRepository(Data.AppDbContext dbContext)
     {
         this.dbContext = dbContext;
     }
