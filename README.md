@@ -18,7 +18,7 @@ Start with the guide that matches the question you are asking:
 
 ## Current stack
 
-- Blazor Server frontend (`QuasarQuant.Web`)
+- Next.js frontend (`QuasarQuant.Web`)
 - ASP.NET Core Web API (`QuasarQuant.API`)
 - PostgreSQL for planned durable storage
 - Redis for planned caching
