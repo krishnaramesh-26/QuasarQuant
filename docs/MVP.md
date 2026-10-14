@@ -6,7 +6,7 @@ The MVP is the smallest useful version of QuasarQuant. It should demonstrate a c
 
 ## MVP goals
 
-- Run the ASP.NET Core API and Blazor Web application locally.
+- Run the ASP.NET Core API and Next.js locally.
 - Expose a documented health endpoint and signal endpoints.
 - Represent trading signals with a stable core model.
 - Support an in-memory repository while the persistence model is designed.
