@@ -6,7 +6,7 @@ This document explains how QuasarQuant runs as a set of local and future product
 
 ```mermaid
 flowchart LR
-    Browser[Blazor Web] --> API[ASP.NET Core API]
+    Browser[Next.js web] --> API[ASP.NET Core API]
     API --> Memory[In-memory signal repository]
     API -. future .-> PostgreSQL[(PostgreSQL)]
     API -. future .-> Redis[(Redis cache)]
@@ -73,7 +73,7 @@ sequenceDiagram
     A-->>M: Request prediction when needed
 ```
 
-The last two database and ML interactions are future paths. The current path ends at `InMemorySignalRepository`.
+The last two database and ML interactions are future paths.
 
 ## Planned responsibilities
 
